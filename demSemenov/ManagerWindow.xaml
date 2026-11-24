@@ -1,0 +1,118 @@
+﻿<Window x:Class="demSemenov.ManagerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:demSemenov"
+        mc:Ignorable="d"
+        Title="Менеджер" Height="450" Width="800" ResizeMode="NoResize" FontFamily="Times New Roman"
+        Background="#FFFFFF" Icon="Resources/icon.ico">
+    <Grid Background="#FFFFFF">
+        <DataGrid AutoGenerateColumns="False" IsReadOnly="True" x:Name="productsDg" Margin="0,67,0,10" HorizontalScrollBarVisibility="Visible" Background="#FFFFFF" RowBackground="#FFFFFF" AlternatingRowBackground="#7FFF00">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="Артикул">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Article}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Имя">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Единица измерения">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding EdinicaIzmereniya}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Цена">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Price}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Поставщик">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Postavshik}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Производитель">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Proizvoditel}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Категория">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding CategoryName}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Скидка">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Discount}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Количество">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Quantity}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Описание">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Description}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Фото">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding Image}" Width="50" Height="50" Stretch="Uniform" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Выйти" HorizontalAlignment="Left" Margin="670,10,0,0" VerticalAlignment="Top" Height="38" Width="91" Click="Button_Click" Background="#00FA9A" FontFamily="Times New Roman" FontSize="16">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="8"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <ComboBox x:Name="filterCb" HorizontalAlignment="Left" Margin="515,18,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="filterCb_SelectionChanged" Background="#7FFF00" FontFamily="Times New Roman">
+            <ComboBoxItem Content="Все" IsSelected="True"/>
+            <ComboBoxItem Content="Мужская обувь"/>
+            <ComboBoxItem Content="Женская обувь"/>
+        </ComboBox>
+        <ComboBox x:Name="sortCb" HorizontalAlignment="Left" Margin="374,18,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="sortCb_SelectionChanged" Background="#7FFF00" FontFamily="Times New Roman">
+            <ComboBoxItem Content="Все" IsSelected="True"/>
+            <ComboBoxItem Content="Цена уб"/>
+            <ComboBoxItem Content="Цена воз"/>
+        </ComboBox>
+        <TextBox x:Name="searchTb" HorizontalAlignment="Left" Margin="213,18,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="134" TextChanged="TextBox_TextChanged" Height="20" Background="#FFFFFF" BorderBrush="#7FFF00" BorderThickness="2" FontFamily="Times New Roman"/>
+        <Button Content="Заказы" HorizontalAlignment="Left" Margin="29,10,0,0" VerticalAlignment="Top" Height="38" Width="76" Click="Button_Click_1" Background="#00FA9A" FontFamily="Times New Roman" FontSize="16">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="8"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+    </Grid>
+</Window>

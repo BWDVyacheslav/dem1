@@ -1,0 +1,129 @@
+﻿<Window x:Class="demSemenov.OrderEditWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:demSemenov"
+        mc:Ignorable="d"
+        Title="Заказ" Height="600" Width="500" ResizeMode="NoResize" FontFamily="Times New Roman"
+        Background="#FFFFFF" Icon="Resources/icon.ico">
+    <Grid Background="#FFFFFF" Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Поля формы -->
+        <Border Grid.Row="0" Background="#FFFFFF" BorderBrush="#E0E0E0" BorderThickness="1"
+                CornerRadius="10" Padding="16">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- Номер заказа -->
+                    <TextBlock Grid.Row="0" Grid.Column="0" Text="Номер заказа"
+                               VerticalAlignment="Center" Margin="0,0,12,0"/>
+                    <TextBox Grid.Row="0" Grid.Column="1" x:Name="orderNumberTb"
+                             Height="30" Margin="0,0,0,10" IsReadOnly="True"
+                             Background="#FFFFFF" BorderBrush="#7FFF00" BorderThickness="2"
+                             VerticalContentAlignment="Center"/>
+
+                    <!-- Товары -->
+                    <TextBlock Grid.Row="1" Grid.Column="0" Text="Товары"
+                               VerticalAlignment="Center" Margin="0,0,12,0"/>
+                    <TextBox Grid.Row="1" Grid.Column="1" x:Name="productsTb"
+                             Height="30" Margin="0,0,0,10"
+                             Background="#FFFFFF" BorderBrush="#7FFF00" BorderThickness="2"
+                             VerticalContentAlignment="Center"/>
+
+                    <!-- Дата заказа -->
+                    <TextBlock Grid.Row="2" Grid.Column="0" Text="Дата заказа"
+                               VerticalAlignment="Center" Margin="0,0,12,0"/>
+                    <DatePicker Grid.Row="2" Grid.Column="1" x:Name="orderDateDp"
+                                Height="30" Margin="0,0,0,10"
+                                Background="#FFFFFF" BorderBrush="#7FFF00" BorderThickness="2"
+                                VerticalContentAlignment="Center"/>
+
+                    <!-- Дата доставки -->
+                    <TextBlock Grid.Row="3" Grid.Column="0" Text="Дата доставки"
+                               VerticalAlignment="Center" Margin="0,0,12,0"/>
+                    <DatePicker Grid.Row="3" Grid.Column="1" x:Name="deliveryDateDp"
+                                Height="30" Margin="0,0,0,10"
+                                Background="#FFFFFF" BorderBrush="#7FFF00" BorderThickness="2"
+                                VerticalContentAlignment="Center"/>
+
+                    <!-- Пункт выдачи -->
+                    <TextBlock Grid.Row="4" Grid.Column="0" Text="Пункт выдачи"
+                               VerticalAlignment="Center" Margin="0,0,12,0"/>
+                    <TextBox Grid.Row="4" Grid.Column="1" x:Name="streetPvzTb"
+                             Height="30" Margin="0,0,0,10"
+                             Background="#FFFFFF" BorderBrush="#7FFF00" BorderThickness="2"
+                             VerticalContentAlignment="Center"/>
+
+                    <!-- ФИО клиента -->
+                    <TextBlock Grid.Row="5" Grid.Column="0" Text="ФИО клиента"
+                               VerticalAlignment="Center" Margin="0,0,12,0"/>
+                    <TextBox Grid.Row="5" Grid.Column="1" x:Name="clientFullNameTb"
+                             Height="30" Margin="0,0,0,10"
+                             Background="#FFFFFF" BorderBrush="#7FFF00" BorderThickness="2"
+                             VerticalContentAlignment="Center"/>
+
+                    <!-- Код получения -->
+                    <TextBlock Grid.Row="6" Grid.Column="0" Text="Код получения"
+                               VerticalAlignment="Center" Margin="0,0,12,0"/>
+                    <TextBox Grid.Row="6" Grid.Column="1" x:Name="codeTb"
+                             Height="30" Margin="0,0,0,10"
+                             Background="#FFFFFF" BorderBrush="#7FFF00" BorderThickness="2"
+                             VerticalContentAlignment="Center"/>
+
+                    <!-- Статус заказа -->
+                    <TextBlock Grid.Row="7" Grid.Column="0" Text="Статус заказа"
+                               VerticalAlignment="Center" Margin="0,0,12,0"/>
+                    <ComboBox Grid.Row="7" Grid.Column="1" x:Name="statusCb"
+                              Height="30" Margin="0,0,0,0"
+                              Background="#7FFF00" FontFamily="Times New Roman"
+                              VerticalContentAlignment="Center">
+                        <ComboBoxItem Content="Новый"/>
+                        <ComboBoxItem Content="Завершен"/>
+                    </ComboBox>
+                </Grid>
+            </ScrollViewer>
+        </Border>
+
+        <!-- Кнопки -->
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center"
+                    Margin="0,16,0,0">
+            <Button Content="Сохранить" Width="120" Height="34" Margin="0,0,12,0"
+                    Click="SaveButton_Click" Background="#00FA9A"
+                    FontFamily="Times New Roman" FontSize="14">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="8"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button Content="Отмена" Width="120" Height="34"
+                    Click="CancelButton_Click" Background="#7FFF00"
+                    FontFamily="Times New Roman" FontSize="14">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="8"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </StackPanel>
+    </Grid>
+</Window>
